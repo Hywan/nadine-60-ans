@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <title>60ème anniversaire de Nadine</title>
+  <style>
+
+    @font-face {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("./inter-regular.woff2") format("woff2");
+    }
+
+    @font-face {
+      font-family: "Lovely";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("./lovely-home.ttf") format("opentype");
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      color: #fff;
+      font-family: Inter;
+      background: #030420;
+    }
+
+    body {
+      display: grid;
+      grid-template-areas:
+        "date"
+        "name"
+        "details";
+    }
+
+    .lovely-home {
+      font-family: "Lovely";
+    }
+
+    .space {
+      display: inline-block;
+      width: 1.5rem;
+    }
+
+    .date {
+      grid-area: date;
+
+      display: grid;
+      min-height: 100vh;
+
+      display: grid;
+      text-align: right;
+      align-content: end;
+
+      background: url('./background.jpg') 50% 50% no-repeat;
+      background-size: cover;
+    }
+
+    .date > * {
+      margin: 1rem;
+    }
+
+    .date > * + * {
+      margin-top: 0;
+    }
+
+    h1, .h1 {
+      font-size: 300%;
+    }
+
+    h1 {
+      grid-area: name;
+
+      margin-block: 3rem;
+      padding-inline: 3rem;
+    }
+
+    .details {
+      grid-area: details;
+      padding-inline: 3rem;
+    }
+
+    #map {
+      margin-block: 1rem;
+
+      height: 20rem;
+      width: 100%;
+      background: #fff;
+    }
+  </style>
+
+  <script src="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.umd.min.js"></script>
+<link href="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.css" rel="stylesheet" />
+</head>
+<body>
+<h1>Anniversaire de Nadine</h1>
+
+<div class="date">
+  <div class="h1 lovely-home">Nadine</div>
+  <datetime>
+    29<span class="space"> </span>
+    juin<span class="space"> </span>
+    2024,<span class="space"> </span>
+    12h  </datetime>
+</div>
+<div class="details">
+  <p>Nous sommes heureux de vous inviter à l'anniversaire de Nadine Enderlin, pour souffler sa 60<sup>ème</sup> bougie.</p>
+  <p>Site provisoire. Bientôt, plus d'informations par ici.</p>
+
+  <div id="map"></div>
+
+  7 rue de Vairé, Nancray, France
+</div>
+
+<script>
+  maptilersdk.config.apiKey = 'ZTvmQgV60XvM1n55np69';
+
+  const map = new maptilersdk.Map({
+    container: 'map',
+    style: maptilersdk.MapStyle.STREETS,
+    center: [6.18256, 47.24637],
+    zoom: 14,
+  });
+  new maptilersdk.Marker()
+    .setLngLat([6.18172, 47.24746])
+    .addTo(map);
+</script>
+</body>
+</html>
